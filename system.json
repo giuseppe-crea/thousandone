@@ -1,0 +1,28 @@
+{
+  "name": "thousandandone",
+  "title": "Thousand and One Nights",
+  "description": "The Thousand and One Nights system for FoundryVTT!",
+  "version": "1.0.0",
+  "minimumCoreVersion": "0.8.6",
+  "compatibleCoreVersion": "9",
+  "author": "Sylt",
+  "esmodules": ["module/thousandandone.mjs"],
+  "styles": ["css/thousandandone.css"],
+  "scripts": [],
+  "packs": [],
+  "languages": [
+    {
+      "lang": "en",
+      "name": "English",
+      "path": "lang/en.json"
+    }
+  ],
+  "gridDistance": 5,
+  "gridUnits": "ft",
+  "primaryTokenAttribute": "bullets",
+  "secondaryTokenAttribute": "respect",
+  "url": "",
+  "manifest": "",
+  "download": "",
+  "license": "LICENSE.txt"
+}

@@ -1,0 +1,23 @@
+{
+  "name": "thousandandone",
+  "version": "1.0.0",
+  "description": "CSS compiler for the Thousand and One Nights system",
+  "scripts": {
+    "build": "gulp build",
+    "compile": "gulp css",
+    "watch": "gulp",
+    "gulp": "gulp"
+  },
+  "browserslist": [
+    "last 3 versions"
+  ],
+  "author": "Sylt",
+  "license": "MIT",
+  "private": true,
+  "dependencies": {
+    "gulp": "^4",
+    "gulp-autoprefixer": "^8",
+    "gulp-sass": "^4",
+    "gulp-sourcemaps": "^3"
+  }
+}

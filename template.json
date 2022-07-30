@@ -1,0 +1,77 @@
+{
+  "Actor": {
+    "types": ["npc", "player"],
+    "templates": {
+      "base": {
+        "biography": ""
+      }
+    },
+	"npc": {
+		"templates": ["base"],
+		"attributes": {
+			"physical": {
+				"min": 0,
+				"max": 5
+			},
+			"mental": {
+				"min": 0,
+				"max": 5
+			},
+			"social": {
+				"min": 0,
+				"max": 5
+			}
+		}
+	},
+    "player": {
+      "templates": ["base"],
+      "attributes": {
+	    "bandolier": {
+			"min": 1,
+			"value": 1
+		},
+		"clip": {
+			"min": 1,
+			"value": 1
+		},
+		"engraving": {
+			"min": 1,
+			"value": 1
+		},
+		"rifling": {
+			"min": 1,
+			"value": 1
+		}
+	  },
+	  "resources": {
+        "bullets": {
+          "value": 10,
+		  "min": 0,
+		  "max": 10
+        },
+		"respect": {
+          "value": 10,
+		  "min": 0,
+		  "max": 10
+        }
+      }
+    }
+  },
+  "Item": {
+    "types": ["item", "feature"],
+    "templates": {
+      "base": {
+        "description": ""
+      }
+    },
+    "item": {
+      "templates": ["base"],
+      "quantity": 1,
+      "weight": 0,
+      "formula": "d20 + @str.mod + ceil(@lvl / 2)"
+    },
+    "feature": {
+      "templates": ["base"]
+    }
+  }
+}
