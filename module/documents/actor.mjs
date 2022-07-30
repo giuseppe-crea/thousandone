@@ -72,7 +72,7 @@ export class ThousandAndOneActor extends Actor {
     if (this.data.type !== 'player') return;
 
     // return remaining bullets and max clip size
-    if (data.attributes.level && data. attributes.clip) {
+    if (data.attributes.bullets && data. attributes.clip) {
       data.bullets = data.resources.bullets.value ?? 0;
 	  data.clip = data.attributes.clip.value ?? 0;
     }

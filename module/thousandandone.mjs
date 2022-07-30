@@ -7,7 +7,6 @@ import { ThousandAndOneItemSheet } from "./sheets/item-sheet.mjs";
 // Import helper/utility classes and constants.
 import { preloadHandlebarsTemplates } from "./helpers/templates.mjs";
 import { THOUSANDANDONE } from "./helpers/config.mjs";
-import * as Chat from "./module/chat.js";
 
 /* -------------------------------------------- */
 /*  Init Hook                                   */
@@ -70,9 +69,6 @@ Handlebars.registerHelper('concat', function() {
 Handlebars.registerHelper('toLowerCase', function(str) {
   return str.toLowerCase();
 });
-
-// Register chat listener for handling rolls
-Hooks.on("renderChatLog", (app, html, data) => Chat.addChatListeners(html));
 
 /* -------------------------------------------- */
 /*  Ready Hook                                  */

@@ -25,7 +25,7 @@ async function rollMyStuff(roll, successes, critfail){
 			}
 		});
 	}
-	await wait(50)
+	await wait(50) // gotta wait on the update
 	console.log("Bullets left: "+actor.data.data.resources.bullets.value);
 	console.log("Roll: "+roll);
 	console.log("Successes: "+successes);
@@ -59,7 +59,7 @@ async function openDialog(stringOfValues, stringOfUnlockedValues, stringOfLocked
 					}
 					successes = critSuccess*2 + successes;
 					console.log(stringOfLockedValues);
-					const oldValues = stringOfLockedValues != '' ? parseInt(stringOfLockedValues) : 0;
+					const oldValues = stringOfLockedValues !== '' ? parseInt(stringOfLockedValues) : 0;
 					console.log("old values: " + oldValues);
 					rollMyStuff(oldValues+parseInt(roll2.result), successes, critfail);
 				}
@@ -77,11 +77,11 @@ async function openDialog(stringOfValues, stringOfUnlockedValues, stringOfLocked
 		close: html => console.log("This always is logged no matter which option is chosen")
 	});
     d.render(true)
-    await wait(50)
+    //await wait(50)
 }
 (async () => {
 	// actor coherency check
-	if (!actor || actor.type != 'player'){
+	if (!actor || actor.type !== 'player'){
 	  console.log("Wrong user")
 	  return false;
 	}else
@@ -95,7 +95,7 @@ async function openDialog(stringOfValues, stringOfUnlockedValues, stringOfLocked
 	let roll = new Roll(i+`d6`);
 	roll.evaluate(asynch=false);
 	// grab the single values of each die
-	var dieArr = Array(i);
+	let dieArr = Array(i);
 	let successes = 0;
 	let critSuccess = 0;
 	let locked = 0;
@@ -127,7 +127,7 @@ async function openDialog(stringOfValues, stringOfUnlockedValues, stringOfLocked
 
 	const available = i - locked;
 	if( available > 0){
-		openDialog(stringOfValues, stringOfUnlockedValues, stringOfLockedValues, available, roll, critfail, successes, critSuccess);
+		await openDialog(stringOfValues, stringOfUnlockedValues, stringOfLockedValues, available, roll, critfail, successes, critSuccess);
 	}else
-		rollMyStuff(roll.result, successes+critSuccess, 0);
+		await rollMyStuff(roll.result, successes+critSuccess, 0);
 })();
