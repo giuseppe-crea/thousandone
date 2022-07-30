@@ -8,7 +8,6 @@ export class ThousandAndOneActorSheet extends ActorSheet {
 
   /** @override */
   static get defaultOptions() {
-    console.log("Within default options")
     return mergeObject(super.defaultOptions, {
       classes: ["thousandandone", "sheet", "actor"],
       template: "systems/thousandandone/templates/actor/actor-sheet.html",
@@ -20,7 +19,6 @@ export class ThousandAndOneActorSheet extends ActorSheet {
 
   /** @override */
   get template() {
-    console.log("This actor is a " + this.actor.data.type)
     return `systems/thousandandone/templates/actor/actor-${this.actor.data.type}-sheet.html`;
   }
 
@@ -42,13 +40,10 @@ export class ThousandAndOneActorSheet extends ActorSheet {
     context.flags = actorData.flags;
 
     // Prepare player data and items.
-    console.log("Testing actor data type")
     if (actorData.type == 'player') {
-      console.log("It was player!")
       this._prepareItems(context);
       this._prepareCharacterData(context);
     }
-    console.log("Done testing ")
 
     // Add roll data for TinyMCE editors.
     context.rollData = context.actor.getRollData();
